@@ -1,13 +1,9 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 
 app = FastAPI(title="SevaSetu : Public Grivience Resolution System")
-health_router = APIRouter(prefix='/app/v1')
 
-@health_router.get('/health', tags=['health'])
-def health():
+@app.get('/')
+def home():
     return {
-        'message' : "Welcome to the SevaSetu Application!!"
+        'message' : 'The Application is up and running!!!'
     }
-
-
-app.include_router(health_router)
